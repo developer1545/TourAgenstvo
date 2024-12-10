@@ -7,15 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="52*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="89"/>
-            <RowDefinition Height="218"/>
-             <RowDefinition Height="112" />
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
+        <Grid Background="#FF10105F" />
+        <Image HorizontalAlignment="Left" Height="69" Margin="10,0,0,0" VerticalAlignment="Center" Width="73" Source="/Логотип.jpg" Cursor="">
+            <Image.Clip>
+                <EllipseGeometry RadiusX="31" RadiusY="33" Center="37,34"/>
+            </Image.Clip>
+        </Image>
+        <TextBlock Text="Header" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" Foreground="#FF02CEF3" />
+        <Grid Grid.Row="2" Background="#FF10105F" />
+
 
 
     </Grid>
