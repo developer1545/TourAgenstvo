@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfApp3"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddEditPage">
+      Title="AddEditPage" >
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,9 +22,10 @@
         <TextBlock Text="Название" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></TextBlock>
         <TextBlock Text="Количество звёзд" Grid.Row="1" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Text="Страна" Grid.Row="2" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBox MaxLength="100"  Grid.Column="1" Height="25" Margin="150,44,150,44" />
-        <TextBox Grid.Column="1" Grid.Row="1" Height="25" Margin="150,42,150,45"/>
-        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="ComboBox" DisplayMemberPath="Name" Height="25" Margin="150,44,150,44"/>
+        <TextBox  MaxLength="100"  Grid.Column="1" Text="{Binding Name}" Height="30" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" />
+        <!-- <TextBox Grid.Column="1" Grid.Row="1" Height="30" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"/> -->
+        <ComboBox x:Name="ComboBoxList" SelectedItem="{Binding CountOfStars}"  Grid.Column="1" Grid.Row="1" Height="30" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" FontSize="18" />
+        <ComboBox SelectedItem="{Binding Country}" Grid.Row="2" Grid.Column="1" x:Name="ComboBox" DisplayMemberPath="Name" Height="30" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" FontSize="16"/>
         <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="3" Name="BtSave" Click="BtnSave_click"></Button>
 
     </Grid>
