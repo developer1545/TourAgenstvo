@@ -20,6 +20,31 @@
         </Image>
         <TextBlock Text="Header" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" Foreground="#FF02CEF3" />
         <Grid Grid.Row="2" Background="#FF10105F" />
+        <Frame ContentRendered="MainFrame_Render" Grid.Row="1" Name="MainFrame"></Frame>
+        <Button Name="Back" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="695,10,0,0" Width="37" Background="#FF111164" BorderBrush="White" Foreground="#FF02CEF3" FontSize="24" Height="31" Click="Back_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            CornerRadius="14">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="Wpered" Content="→" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="746,10,0,0" Width="37" Background="#FF111164" BorderBrush="White" Foreground="#FF02CEF3" FontSize="24" Height="31" Click="Forward_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="14">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
 
 

@@ -26,7 +26,27 @@ namespace WpfApp3
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new HotelsPage());
+            Manager.MainFrame = MainFrame;
             //ImportTours();
+        }
+
+        private void Forward_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.GoForward();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.GoBack();
+        }
+        private void MainFrame_Render(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack)
+            {
+                Back.Visibility = Visibility.Visible;
+            }
+            else { Back.Visibility = Visibility.Hidden; }
         }
     }
 }
