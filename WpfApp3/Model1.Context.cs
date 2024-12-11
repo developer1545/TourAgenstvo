@@ -15,11 +15,17 @@ namespace WpfApp3
     
     public partial class Import_FileEntities : DbContext
     {
+        private static Import_FileEntities _context;
         public Import_FileEntities()
             : base("name=Import_FileEntities")
         {
         }
-    
+        public static Import_FileEntities GetContext()
+        {
+            if (_context == null)
+                _context = new Import_FileEntities();
+            return _context;
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

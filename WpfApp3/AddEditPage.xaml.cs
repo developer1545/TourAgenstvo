@@ -23,6 +23,12 @@ namespace WpfApp3
         public AddEditPage()
         {
             InitializeComponent();
+            ComboBox.ItemsSource = Import_FileEntities.GetContext().Countries.ToList();
+        }
+
+        private void BtnSave_click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

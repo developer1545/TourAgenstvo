@@ -23,11 +23,26 @@ namespace WpfApp3
         public HotelsPage()
         {
             InitializeComponent();
+            DGridHotels.ItemsSource = Import_FileEntities.GetContext().Hotels.ToList();
         }
 
         private void OnClick(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEditPage());
+        }
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DtnAdd_click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage());
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

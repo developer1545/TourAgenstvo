@@ -31,22 +31,31 @@ namespace WpfApp3
             //ImportTours();
         }
 
-        private void Forward_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.GoForward();
-        }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.GoBack();
+            if (MainFrame.CanGoBack)
+            {
+                Manager.MainFrame.GoBack();
+            }
         }
-        private void MainFrame_Render(object sender, RoutedEventArgs e)
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
         {
             if (MainFrame.CanGoBack)
             {
-                Back.Visibility = Visibility.Visible;
+                Back.Visibility = Visibility.Visible;   
             }
-            else { Back.Visibility = Visibility.Hidden; }
+            else 
+            { 
+                Back.Visibility = Visibility.Hidden;
+            }
+
+        }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
