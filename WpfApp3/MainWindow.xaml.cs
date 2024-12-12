@@ -26,7 +26,7 @@ namespace WpfApp3
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new HotelsPage());
+            MainFrame.Navigate(new ToursPage());
             Manager.MainFrame = MainFrame;
             //ImportTours();
         }
