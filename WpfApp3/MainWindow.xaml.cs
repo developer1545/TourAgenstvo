@@ -58,6 +58,8 @@ namespace WpfApp3
             Window newWindow = new Autorized();
             newWindow.Show();
         }
+
+
     }
 }
         /*private void ImportTours()

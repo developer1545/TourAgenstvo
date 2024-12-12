@@ -32,7 +32,16 @@ namespace WpfApp3
 
         private void MouseEnter(object sender, MouseEventArgs e)
         {
-           
+            TextRe.TextDecorations = TextDecorations.Underline;
+        }
+        private void Block_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TextRe.TextDecorations = null;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

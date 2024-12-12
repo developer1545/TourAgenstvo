@@ -18,7 +18,7 @@
                 <EllipseGeometry RadiusX="31" RadiusY="33" Center="37,34"/>
             </Image.Clip>
         </Image>
-        <TextBlock Text="Header" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" Foreground="#FF02CEF3" />
+        <TextBlock Text="ТурАгенство" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" Foreground="#FF02CEF3" />
         <Grid Grid.Row="2" Background="#FF10105F" />
         <Frame  NavigationUIVisibility="Hidden" Grid.Row="1" Name="MainFrame" Navigated="MainFrame_Navigated"></Frame>
 
@@ -32,7 +32,7 @@
                 </LinearGradientBrush>
             </Border.BorderBrush>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Height="46">
-                <Button x:Name="Back" Content="◄" Width="37" Background="#FF394197" BorderBrush="#FF04C8EF" Foreground="#FF02CEF3" FontSize="24" Height="31" Click="Back_Click" MaxWidth="37" MaxHeight="31">
+                <Button x:Name="Back" Content="◄" Width="37" Background="#FF394197" BorderBrush="#FF04C8EF" ToolTip="Назад" Foreground="#FF02CEF3" FontSize="24" Height="31" Click="Back_Click" MaxWidth="37" MaxHeight="31">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}" 
@@ -44,7 +44,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button x:Name="Menu" Margin="0,0,0,0" Content="☺" Width="37" Background="#FF394197" BorderBrush="#FF02CEF3" Foreground="#FF02CEF3" FontSize="24" Height="31" Click="Menu_Click" MaxWidth="37" MaxHeight="31">
+                <Button x:Name="Menu" Margin="0,0,0,0" Content="☺" Width="37" Background="#FF394197" ToolTip="Войти" BorderBrush="#FF02CEF3" Foreground="#FF02CEF3" FontSize="24" Height="31" Click="Menu_Click" MaxWidth="37" MaxHeight="31">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}" 
