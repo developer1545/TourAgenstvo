@@ -23,28 +23,38 @@ namespace WpfApp3
     public partial class ToursPage : Page
     {
         public ObservableCollection<BitmapImage> Images { get; set; }
+  
 
         public ToursPage()
         {
             InitializeComponent();
+            var allTypes = Import_FileEntities.GetContext().Types.ToList();
+            allTypes.Insert(0, new Type { Name = "Все типы" });
+            ComboType.ItemsSource = allTypes;
+            CheckActual.IsChecked = true;
+            ComboType.SelectedIndex = 0;
             var currentTours = Import_FileEntities.GetContext().Tours.ToList();
             LViewTours.ItemsSource = currentTours;
             Images = new ObservableCollection<BitmapImage>();
             DataContext = this;
+            
+            
+        }
 
-            LoadImages();
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
-        private void LoadImages()
+
+
+        private void CheckActual_Checked(object sender, RoutedEventArgs e)
         {
-            // Пример загрузки изображений
-            Images.Add(new BitmapImage(new Uri("C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото\\Город с большими амбициями.jpg")));
-            Images.Add(new BitmapImage(new Uri("C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото\\Город четырех ворот.jpg")));
-            Images.Add(new BitmapImage(new Uri("C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото\\Древний Минск.jpg")));
-            Images.Add(new BitmapImage(new Uri("C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото\\Жемчужина Татарстана.jpg")));
-            Images.Add(new BitmapImage(new Uri("C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото\\Прекрасные острова Греции.jpg")));
-            Images.Add(new BitmapImage(new Uri("C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото\\Финская крепость.jpg")));
-            // Добавьте другие изображения по мере необходимости
+
+        }
+
+        private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
