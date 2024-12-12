@@ -19,6 +19,7 @@ namespace WpfApp3
     /// </summary>
     public partial class Autorized : Window
     {
+        private Account _currentAccount = new Account();
         public Autorized()
         {
             InitializeComponent();
@@ -39,9 +40,30 @@ namespace WpfApp3
             TextRe.TextDecorations = null;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+ 
 
+        private void Autorized_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder errors = new StringBuilder();
+            if (string.IsNullOrWhiteSpace(_currentAccount.Login))
+            {
+                errors.AppendLine("Укажите логин");
+            }
+            if (string.IsNullOrWhiteSpace(_currentAccount.Password))
+            {
+                errors.AppendLine("Укажите пароль");
+            }
+            
+            try
+            {
+                Import_FileEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация успешно сохранена!");
+                Manager.MainFrame.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

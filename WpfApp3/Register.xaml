@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="Регистрация" Height="450" Width="800">
+        Title="Регистрация" Height="350" Width="500" ResizeMode="NoResize">
     <Grid>
-        
+        <Image Height="69" Margin="214,10,0,0" VerticalAlignment="Top" Source="/Логотип.jpg" Cursor="" HorizontalAlignment="Left" Width="73">
+            <Image.Clip>
+                <EllipseGeometry RadiusX="31" RadiusY="33" Center="37,34"/>
+            </Image.Clip>
+        </Image>
+        <StackPanel HorizontalAlignment="Center" Width="274" Height="174" VerticalAlignment="Center">
+            <TextBlock  Text="Логин" Margin="0,0,191,0" FontSize="16"></TextBlock>
+            <TextBox Name="LoginText" Text="{Binding Login}"  FontSize="16"  ></TextBox>
+            <TextBlock Text="Пароль" FontSize="16" ></TextBlock>
+            <TextBox  Name="PasswordText" Text="{Binding Password}" FontSize="16" ></TextBox>
+            <TextBlock Text="Уже имеется аккаунт?" FontSize="16"></TextBlock>
+            <TextBlock Name="TextRe" Text="Войти" Foreground="#FF1641B2"  MouseDown="VxodPere_click" MouseEnter="MouseEnter" MouseLeave="Block_MouseLeave" FontSize="16"/>
+            <Button Content="Создать" Click="Vxod_Click"></Button>
+        </StackPanel>
     </Grid>
 </Window>

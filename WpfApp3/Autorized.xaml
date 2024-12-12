@@ -12,14 +12,14 @@
                 <EllipseGeometry RadiusX="31" RadiusY="33" Center="37,34"/>
             </Image.Clip>
         </Image>
-        <StackPanel HorizontalAlignment="Center" Width="274" Height="158" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" Width="274" Height="174" VerticalAlignment="Center">
             <TextBlock  Text="Логин" Margin="0,0,191,0" FontSize="16"></TextBlock>
-            <TextBox FontSize="16" TextChanged="TextBox_TextChanged" ></TextBox>
+            <TextBox Name="LoginText" Text="{Binding Login}"  FontSize="16"  ></TextBox>
             <TextBlock Text="Пароль" FontSize="16" ></TextBlock>
-            <TextBox FontSize="16" ></TextBox>
+            <TextBox  Name="PasswordText" Text="{Binding Password}" FontSize="16" ></TextBox>
             <TextBlock Text="Нет аккаунта?" FontSize="16"></TextBlock>
             <TextBlock Name="TextRe" Text="Зарегестрироваться" Foreground="#FF1641B2"  MouseDown="Register_click" MouseEnter="MouseEnter" MouseLeave="Block_MouseLeave" FontSize="16"/>
-
+            <Button Content="Войти" Click="Autorized_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>
