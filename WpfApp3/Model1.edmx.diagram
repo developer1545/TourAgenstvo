@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5a39debd98cb46778b61ed73c59d5a8a" Name="Diagram1">
+      <Diagram DiagramId="8c9723b2a343430da11a129c9fdb7ff5" Name="Diagram1">
         <EntityTypeShape EntityType="Import_FileModel.Country" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Import_FileModel.Hotel" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="Import_FileModel.HotelComment" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />

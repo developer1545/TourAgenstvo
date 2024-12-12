@@ -23,7 +23,9 @@ namespace WpfApp3
         public static Import_FileEntities GetContext()
         {
             if (_context == null)
+            {
                 _context = new Import_FileEntities();
+            }
             return _context;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

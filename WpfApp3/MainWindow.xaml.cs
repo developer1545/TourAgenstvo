@@ -44,10 +44,10 @@ namespace WpfApp3
         {
             if (MainFrame.CanGoBack)
             {
-                Back.Visibility = Visibility.Visible;   
+                Back.Visibility = Visibility.Visible;
             }
-            else 
-            { 
+            else
+            {
                 Back.Visibility = Visibility.Hidden;
             }
 
@@ -59,28 +59,9 @@ namespace WpfApp3
         }
     }
 }
-        /*public partial class Import_FileEntities : DbContext
+        /*private void ImportTours()
         {
-            private static Import_FileEntities _context;
-            public Import_FileEntities()
-            : base("name=Import_FileEntities")
-            {
-            }
-            public static Import_FileEntities GetContext()
-            {
-                if (_context == null)
-                    _context = new Import_FileEntities();
-                return _context;
-            }
-
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
-            {
-                throw new UnintentionalCodeFirstException();
-            }
-        }
-        private void ImportTours()
-        {
-            var fileData = File.ReadAllLines(@"C:\\Users\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры.txt");
+            var fileData = File.ReadAllLines(@"D:\1\Tours.txt");
             var images = Directory.GetFiles(@"C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото");
             foreach (var line in fileData)
             {
@@ -110,6 +91,58 @@ namespace WpfApp3
             }
         }
     }
+} */
+/*public partial class Import_FileEntities : DbContext
+   {
+       private static Import_FileEntities _context;
+       public Import_FileEntities()
+       : base("name=Import_FileEntities")
+       {
+       }
+       public static Import_FileEntities GetContext()
+       {
+           if (_context == null)
+               _context = new Import_FileEntities();
+           return _context;
+       }
+
+       protected override void OnModelCreating(DbModelBuilder modelBuilder)
+       {
+           throw new UnintentionalCodeFirstException();
+       }
+   }
+   private void ImportTours()
+   {
+       var fileData = File.ReadAllLines(@"C:\\Users\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры.txt");
+       var images = Directory.GetFiles(@"C:\\Users\\antom\\OneDrive\\Рабочий стол\\2024-2025\\УП.01.01\\import до\\Туры фото");
+       foreach (var line in fileData)
+       {
+           var data = line.Split('\t');
+           var tempTour = new Tour
+           {
+               Name = data[0].Replace("\"", ""),
+               TicketCount = int.Parse(data[2]),
+               Price = decimal.Parse(data[3]),
+               IsActual = (data[4] == "0") ? false : true
+           };
+           foreach (var TypeOfTour in data[5].Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+           {
+               var currentType = Import_FileEntities.GetContext().Types.ToList().FirstOrDefault(p => p.Name == TypeOfTour);
+               if (currentType != null)
+               {
+                   tempTour.Types.Add(currentType);
+               }
+               try
+               {
+                   tempTour.ImagePreview = File.ReadAllBytes(images.FirstOrDefault(p => p.Contains(tempTour.Name)));
+               }
+               catch (Exception ex) { Console.WriteLine(ex.Message); }
+           }
+           Import_FileEntities.GetContext().Tours.Add(tempTour);
+           Import_FileEntities.GetContext().SaveChanges();
+       }
+   }
+}
 }
 */
 

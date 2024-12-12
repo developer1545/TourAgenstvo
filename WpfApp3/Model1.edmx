@@ -59,9 +59,9 @@
         </EntityType>
         <EntityType Name="Tour">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TicedCount" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Descriprion" Type="nvarchar(max)" />
@@ -79,11 +79,11 @@
         </EntityType>
         <EntityType Name="TypeOfTour">
           <Key>
-            <PropertyRef Name="TourID" />
-            <PropertyRef Name="TypeID" />
+            <PropertyRef Name="TourId" />
+            <PropertyRef Name="TypeId" />
           </Key>
-          <Property Name="TourID" Type="int" Nullable="false" />
-          <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourId" Type="int" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Hotel_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -138,7 +138,7 @@
           <End Role="HotelOfTour" Type="Self.HotelOfTour" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tour">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="HotelOfTour">
               <PropertyRef Name="TourID" />
@@ -150,10 +150,10 @@
           <End Role="TypeOfTour" Type="Self.TypeOfTour" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tour">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TypeOfTour">
-              <PropertyRef Name="TourID" />
+              <PropertyRef Name="TourId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -165,7 +165,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="TypeOfTour">
-              <PropertyRef Name="TypeID" />
+              <PropertyRef Name="TypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -266,9 +266,9 @@
         </EntityType>
         <EntityType Name="Tour">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TicketCount" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Descriprion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -418,7 +418,7 @@
           <EntitySetMapping Name="Tours">
             <EntityTypeMapping TypeName="Import_FileModel.Tour">
               <MappingFragment StoreEntitySet="Tour">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TicketCount" ColumnName="TicedCount" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Descriprion" ColumnName="Descriprion" />
@@ -442,15 +442,15 @@
               <ScalarProperty Name="ID" ColumnName="HotelID" />
             </EndProperty>
             <EndProperty Name="Tour">
-              <ScalarProperty Name="ID" ColumnName="TourID" />
+              <ScalarProperty Name="Id" ColumnName="TourID" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="TypeOfTour" TypeName="Import_FileModel.TypeOfTour" StoreEntitySet="TypeOfTour">
             <EndProperty Name="Tour">
-              <ScalarProperty Name="ID" ColumnName="TourID" />
+              <ScalarProperty Name="Id" ColumnName="TourId" />
             </EndProperty>
             <EndProperty Name="Type">
-              <ScalarProperty Name="ID" ColumnName="TypeID" />
+              <ScalarProperty Name="ID" ColumnName="TypeId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

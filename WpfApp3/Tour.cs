@@ -21,7 +21,7 @@ namespace WpfApp3
             this.Types = new HashSet<Type>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
         public int TicketCount { get; set; }
         public string Name { get; set; }
         public string Descriprion { get; set; }
