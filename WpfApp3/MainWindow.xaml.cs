@@ -55,7 +55,8 @@ namespace WpfApp3
 
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
-
+            Window newWindow = new Autorized();
+            newWindow.Show();
         }
     }
 }
