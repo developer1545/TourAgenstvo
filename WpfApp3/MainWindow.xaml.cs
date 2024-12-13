@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace WpfApp3
 {
@@ -23,7 +25,7 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool MenuClick = false;
+        //bool MenuClick = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -58,8 +60,9 @@ namespace WpfApp3
             }
             else
             {
-                Back.IsEnabled = false;
+                //Back.IsEnabled = false;
             }
+            
 
         }
 
@@ -74,23 +77,76 @@ namespace WpfApp3
 
         private void Red_Click(object sender, RoutedEventArgs e)
         {
-            
+            Manager.MainFrame.Navigate(new HotelsPage());
         }
 
-        private void MouseMove(object sender, MouseEventArgs e)
-        {
-            MouseMoveOpt();
-        }
-
-        private void MouseLeave(object sender, MouseEventArgs e)
-        {
-            MouseExitOpt();
-        }
+      
 
         private void Account_click(object sender, MouseButtonEventArgs e)
         {
             Window newWindow = new Autorized();
             newWindow.Show();
+        }
+
+        private void MouseButtonAccEnter(object sender, MouseEventArgs e)
+        {
+            Menu.Background = Brushes.White; 
+        }
+
+        private void MouseButtonAccLeave(object sender, MouseEventArgs e)
+        {
+            Menu.Background = null;
+            
+        }
+
+        private void MouseRedEnter(object sender, MouseEventArgs e)
+        {
+            Red.Background = Brushes.White;
+        }
+
+        private void MouseRedLeave(object sender, MouseEventArgs e)
+        {
+            Red.Background = null;
+        }
+
+        private void MouseBackEnte(object sender, MouseEventArgs e)
+        {
+            Back.Background = Brushes.White;
+        }
+
+        private void MouseBackLeave(object sender, MouseEventArgs e)
+        {
+            Back.Background = null;
+        }
+
+        private void MouseDownGrid(object sender, MouseButtonEventArgs e)
+        {
+            if (Border.Visibility == Visibility.Visible && e.OriginalSource != Border)
+            {
+                Border.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Setting_click(object sender, MouseButtonEventArgs e)
+        {
+            Window newWindow = new Setting();
+            newWindow.Show();
+        }
+
+        private void Exit_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void MouseImageDown(object sender, MouseButtonEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new ToursPage());
+        }
+
+        private void MouseTextDown(object sender, MouseButtonEventArgs e)
+        {
+            Window newWindows = new OOO();
+            newWindows.Show();
         }
     }
 }
