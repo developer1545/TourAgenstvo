@@ -20,9 +20,12 @@ namespace WpfApp3
     public partial class Register : Window
     {
         private Account _currentAccount1 = new Account();
+        private string[] massive = { "User","Admin" ,"Manager" };
         public Register()
         {
             InitializeComponent();
+            DataContext = _currentAccount1;
+            ComboBoxAccount.ItemsSource = massive;
 
         }
 
@@ -45,6 +48,10 @@ namespace WpfApp3
                 MessageBox.Show(errors.ToString());
                 return;
             }
+            if (_currentAccount1.Type == "")
+            {
+                errors.AppendLine("Укажите тип пользователя");
+            }
             if (_currentAccount1.Id == 0)
             {
                 UsersEntities.GetContext().Accounts.Add(_currentAccount1);
@@ -60,6 +67,7 @@ namespace WpfApp3
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+
         }
 
         private void VxodPere_click(object sender, MouseButtonEventArgs e)
