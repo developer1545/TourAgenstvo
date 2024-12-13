@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Mysqlx;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +23,12 @@ namespace WpfApp3
     public partial class Autorized : Window
     {
         private Account _currentAccount = new Account();
+        private string[] massive = { "User", "Admin", "Manager" };
         public Autorized()
         {
             InitializeComponent();
+            DataContext = _currentAccount;
+            
         }
 
         private void Register_click(object sender, MouseButtonEventArgs e)
@@ -53,17 +59,45 @@ namespace WpfApp3
             {
                 errors.AppendLine("Укажите пароль");
             }
-            
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            if (_currentAccount.Type == "")
+            {
+                errors.AppendLine("Укажите тип пользователя");
+            }
             try
             {
-                Import_FileEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация успешно сохранена!");
-                Manager.MainFrame.GoBack();
+                using (var context = UsersEntities.GetContext())
+                {
+                    string username = LoginText.Text;
+                    string password = PasswordText.Text;
+                    bool UserExits = context.Accounts.Any(u => u.Login == username && u.Password == password);
+                    if (UserExits)
+                    {
+                        MessageBox.Show("Пользователь авторизован");
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пользователь не найден");
+                        MessageBox.Show("Неправильный логин или пароль");
+                    }
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
-            }
+            }         
+        }
+        private void Autorizetion()
+        {
+           
+            
+
         }
     }
 }
