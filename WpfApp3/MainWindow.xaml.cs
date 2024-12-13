@@ -23,14 +23,24 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool MenuClick = false;
         public MainWindow()
         {
             InitializeComponent();
             MainFrame.Navigate(new ToursPage());
             Manager.MainFrame = MainFrame;
             //ImportTours();
+           Border.Visibility = Visibility.Hidden;
+           
         }
-
+        private void MouseExitOpt()
+        {
+            Border.Visibility = Visibility.Hidden;
+        }
+        private void MouseMoveOpt()
+        {
+            Border.Visibility = Visibility.Visible;
+        }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -44,22 +54,44 @@ namespace WpfApp3
         {
             if (MainFrame.CanGoBack)
             {
-                Back.Visibility = Visibility.Visible;
+                Back.IsEnabled = true;
             }
             else
             {
-                Back.Visibility = Visibility.Hidden;
+                Back.IsEnabled = false;
             }
 
         }
 
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
+
+            MouseMoveOpt();
+            //Window newWindow = new Autorized();
+            //newWindow.Show();
+
+        }
+
+        private void Red_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void MouseMove(object sender, MouseEventArgs e)
+        {
+            MouseMoveOpt();
+        }
+
+        private void MouseLeave(object sender, MouseEventArgs e)
+        {
+            MouseExitOpt();
+        }
+
+        private void Account_click(object sender, MouseButtonEventArgs e)
+        {
             Window newWindow = new Autorized();
             newWindow.Show();
         }
-
-
     }
 }
         /*private void ImportTours()
