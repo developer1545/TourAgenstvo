@@ -22,7 +22,7 @@ namespace WpfApp3
         public Lice()
         {
             InitializeComponent();
-            WebBrowser.Navigate("");
+            //WebBrowser.Navigate("");
         }
     }
 }

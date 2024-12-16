@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="Setting" Height="350" Width="500">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Настройки сайта">
+                <Grid >
+                    <TextBlock Text="Вкладка находиться в разработке" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Настройки аккаунта">
+                <Grid >
+                    <Button Content="Удалить аккаунт" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,5,5,5"></Button>
+                    <TextBox x:Name="LoginText" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="80,20,0,0" />
+                    <Label Content="Логин" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,13,0,0" FontSize="16"></Label>
+                    <Button Content="Изменить логин" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Width="90" Height="18" FontSize="10"></Button>
+                    <PasswordBox VerticalAlignment="Top" HorizontalAlignment="Left" Margin="80,50,0,0" Width="114" Password="Password" ></PasswordBox>
+                    <Button Content="Изменить пароль" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" Width="90" Height="18" FontSize="10"></Button>
+                    <Label Content="Пароль" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,43,0,0" FontSize="16" ></Label>
+                    <Button Content="Войти в другой аккаунт" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5,5,10,5"/>
+                    <TextBox Text="История оформления туров" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,57" FontSize="16" IsReadOnly="True" Background="#FF7FCFE9"></TextBox>
+                    <!-- <Button Content="История оформления туров" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,100,0,0"></Button> -->
+                    <ListBox Margin="10,135,10,40" ></ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Подать отчёт об ошибке" >
+                <TextBlock Text="Вкладка находиться в разработке" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
